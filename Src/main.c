@@ -22,6 +22,7 @@
 #include "main.h"
 #include "usb_device.h"
 #include "gpio.h"
+#include "usbd_cdc_if.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -157,6 +158,10 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
+void CDC_ReceiveCallback(uint8_t* Buf, uint32_t Len)
+{
+	CDC_Transmit_FS(Buf, Len);
+}
 
 /* USER CODE END 4 */
 
